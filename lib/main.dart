@@ -2,15 +2,34 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int counter = 0;
+
+  void increment() {
+    setState(() {
+      counter++;
+    });
+  }
+
+  void decrement() {
+    setState(() {
+      counter--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Hello World App'),
+          title: const Text('Statefull widget'),
         ),
         body: Container(
           color: Colors.blueGrey,
@@ -83,10 +102,38 @@ class MyApp extends StatelessWidget {
                                   color: Colors.orangeAccent,
                                   child: const Text('Row 3')),
                             ],
-                          )
+                          ),
                         ],
                       )),
                 ),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      children: <Widget>[
+                        const Text('Counter'),
+                        Text(counter.toString(),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 30)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red),
+                                onPressed: decrement,
+                                child: const Text('Decrement')),
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green),
+                                onPressed: increment,
+                                child: const Text('Increment'))
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           ),
