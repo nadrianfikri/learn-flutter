@@ -12,27 +12,68 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Hello World App'),
         ),
-        body: Center(
-            child: Container(
-          color: Colors.cyan,
-          width: 150,
-          // height: 50,
-          child: const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              'Lorem ipsum dolor sit amet yang panjang sekali sampai tiga baris seharusnya',
-              // maxLines: 2,
-              // overflow: TextOverflow.ellipsis,
-              // softWrap: false,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              color: Colors.cyan,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Column 1',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+              ),
             ),
-          ),
-        )),
+            Container(
+              color: Colors.blue,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Column 2',
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.lightGreen,
+              child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Column 3',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                              color: Colors.redAccent, child: Text('Row 1')),
+                          Container(
+                              color: Colors.pinkAccent, child: Text('Row 2')),
+                          Container(
+                              color: Colors.orangeAccent, child: Text('Row 3')),
+                        ],
+                      )
+                    ],
+                  )),
+            ),
+          ],
+        ),
       ),
     );
   }
