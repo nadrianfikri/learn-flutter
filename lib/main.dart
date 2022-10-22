@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import './components/counter.dart';
 import './components/animatedContainer.dart';
+import './components/flex.dart';
 
 void main() => runApp(const MyApp());
 
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Animated Container widget'),
+          title: const Text('Flexible widget'),
         ),
         body: ListView(padding: const EdgeInsets.all(20), children: [
           const Counter(),
@@ -38,6 +39,7 @@ class _MyAppState extends State<MyApp> {
           ...widgets,
           const SizedBox(height: 16),
           const MyAnimatedContainer(),
+          const MyFlex()
         ]),
       ),
     );
